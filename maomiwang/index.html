@@ -1,0 +1,1005 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>猫咪网-猫咪品种百科、养护知识与领养交流社区</title>
+<meta name="description" content="猫咪网是一个面向养猫人群的知识与交流平台，提供猫咪品种介绍、日常养护、健康护理、行为解读、领养送养信息与铲屎官经验分享，帮助新手和有经验的猫主人更好地照顾猫咪。">
+<meta name="keywords" content="猫咪网,猫咪品种,养猫知识,猫咪养护,猫行为,猫咪健康,猫咪领养,铲屎官社区">
+<script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+<style>
+  :root{
+    --ink:#2b2622;
+    --ink-soft:#5c534b;
+    --line:#e7dfd6;
+    --paper:#fbf7f2;
+    --card:#ffffff;
+    --amber:#e08a3c;
+    --amber-deep:#c26f24;
+    --teal:#3f8f86;
+    --radius:14px;
+    --shadow:0 6px 20px rgba(90,70,50,.08);
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei",system-ui,-apple-system,sans-serif;
+    color:var(--ink);
+    background:var(--paper);
+    line-height:1.75;
+    font-size:16px;
+  }
+  a{color:inherit;text-decoration:none;}
+  img{max-width:100%;}
+  .wrap{
+    width:100%;
+    max-width:1160px;
+    margin:0 auto;
+    padding:0 20px;
+  }
+  /* ---------- 顶栏 ---------- */
+  .topbar{
+    background:#2b2622;
+    color:#f2e9df;
+    font-size:13px;
+  }
+  .topbar .wrap{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:12px;
+    min-height:38px;
+    flex-wrap:wrap;
+  }
+  .topbar span{opacity:.8;}
+  .topbar nav a{
+    margin-left:16px;
+    opacity:.85;
+    transition:opacity .2s;
+  }
+  .topbar nav a:hover{opacity:1;color:#f2b46a;}
+  /* ---------- 页眉 ---------- */
+  header.site{
+    background:linear-gradient(180deg,#fff8f0 0%,#fbf7f2 100%);
+    border-bottom:1px solid var(--line);
+    position:sticky;
+    top:0;
+    z-index:30;
+    backdrop-filter:blur(6px);
+  }
+  .head-inner{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:18px;
+    padding:14px 0;
+    flex-wrap:wrap;
+  }
+  .brand{
+    display:flex;
+    align-items:center;
+    gap:10px;
+  }
+  .brand .logo{
+    width:42px;height:42px;
+    border-radius:12px;
+    background:radial-gradient(circle at 30% 30%,#ffd9a8,#e08a3c);
+    display:flex;align-items:center;justify-content:center;
+    font-size:22px;
+    box-shadow:var(--shadow);
+  }
+  .brand b{
+    font-size:20px;
+    letter-spacing:1px;
+    display:block;
+    line-height:1.2;
+  }
+  .brand small{
+    color:var(--ink-soft);
+    font-size:12px;
+    letter-spacing:.5px;
+  }
+  nav.main{
+    display:flex;
+    gap:6px;
+    flex-wrap:wrap;
+  }
+  nav.main a{
+    padding:8px 14px;
+    border-radius:999px;
+    font-size:15px;
+    color:var(--ink-soft);
+    transition:.2s;
+  }
+  nav.main a:hover,nav.main a.active{
+    background:#fff;
+    color:var(--amber-deep);
+    box-shadow:var(--shadow);
+  }
+  .head-search{
+    display:flex;
+    align-items:center;
+    background:#fff;
+    border:1px solid var(--line);
+    border-radius:999px;
+    overflow:hidden;
+    box-shadow:var(--shadow);
+  }
+  .head-search input{
+    border:0;
+    outline:0;
+    padding:9px 14px;
+    font-size:14px;
+    width:170px;
+    background:transparent;
+    color:var(--ink);
+  }
+  .head-search button{
+    border:0;
+    background:var(--amber);
+    color:#fff;
+    padding:9px 16px;
+    font-size:14px;
+    cursor:pointer;
+    transition:.2s;
+  }
+  .head-search button:hover{background:var(--amber-deep);}
+  /* ---------- 首屏 ---------- */
+  .hero{
+    padding:54px 0 46px;
+    background:
+      radial-gradient(900px 320px at 88% -10%,rgba(224,138,60,.18),transparent 70%),
+      radial-gradient(700px 300px at 5% 0%,rgba(63,143,134,.14),transparent 70%);
+  }
+  .hero-grid{
+    display:grid;
+    grid-template-columns:1.25fr .95fr;
+    gap:40px;
+    align-items:center;
+  }
+  .hero h1{
+    font-size:clamp(26px,3.4vw,40px);
+    line-height:1.35;
+    margin:0 0 16px;
+    letter-spacing:.5px;
+  }
+  .hero h1 em{
+    font-style:normal;
+    color:var(--amber-deep);
+    background:linear-gradient(180deg,transparent 62%,rgba(224,138,60,.28) 62%);
+  }
+  .hero p.lead{
+    font-size:16.5px;
+    color:var(--ink-soft);
+    margin:0 0 24px;
+    max-width:560px;
+  }
+  .hero-actions{display:flex;gap:12px;flex-wrap:wrap;}
+  .btn{
+    display:inline-block;
+    padding:11px 24px;
+    border-radius:999px;
+    font-size:15px;
+    cursor:pointer;
+    border:1px solid transparent;
+    transition:.2s;
+  }
+  .btn-primary{background:var(--amber);color:#fff;box-shadow:0 8px 18px rgba(224,138,60,.32);}
+  .btn-primary:hover{background:var(--amber-deep);transform:translateY(-1px);}
+  .btn-ghost{background:#fff;border-color:var(--line);color:var(--ink-soft);}
+  .btn-ghost:hover{border-color:var(--amber);color:var(--amber-deep);}
+  .hero-stats{
+    display:flex;
+    gap:26px;
+    margin-top:30px;
+    flex-wrap:wrap;
+  }
+  .hero-stats div b{
+    display:block;
+    font-size:20px;
+    color:var(--teal);
+  }
+  .hero-stats div span{font-size:13px;color:var(--ink-soft);}
+  .hero-card{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:20px;
+    padding:22px;
+    box-shadow:var(--shadow);
+  }
+  .hero-card h3{
+    margin:0 0 14px;
+    font-size:16px;
+    display:flex;
+    align-items:center;
+    gap:8px;
+  }
+  .hero-card h3::before{
+    content:"";
+    width:8px;height:8px;border-radius:50%;
+    background:var(--amber);
+  }
+  .quick-list{list-style:none;margin:0;padding:0;}
+  .quick-list li{
+    display:flex;
+    justify-content:space-between;
+    gap:10px;
+    padding:10px 0;
+    border-bottom:1px dashed var(--line);
+    font-size:14.5px;
+  }
+  .quick-list li:last-child{border-bottom:0;}
+  .quick-list li a{color:var(--ink);}
+  .quick-list li a:hover{color:var(--amber-deep);}
+  .quick-list li span{color:#a99e93;font-size:13px;flex:none;}
+  /* ---------- 通用区块 ---------- */
+  section.block{padding:46px 0;}
+  .sec-head{
+    display:flex;
+    align-items:flex-end;
+    justify-content:space-between;
+    gap:16px;
+    margin-bottom:26px;
+    flex-wrap:wrap;
+  }
+  .sec-head h2{
+    font-size:23px;
+    margin:0;
+    letter-spacing:.5px;
+  }
+  .sec-head h2 small{
+    display:block;
+    font-size:13px;
+    font-weight:400;
+    color:#a99e93;
+    letter-spacing:1px;
+    margin-top:4px;
+  }
+  .sec-head .more{
+    font-size:14px;
+    color:var(--amber-deep);
+    border-bottom:1px solid transparent;
+  }
+  .sec-head .more:hover{border-bottom-color:var(--amber-deep);}
+  /* ---------- 品种卡 ---------- */
+  .breed-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:18px;
+  }
+  .breed{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:18px;
+    transition:.22s;
+  }
+  .breed:hover{
+    transform:translateY(-3px);
+    box-shadow:var(--shadow);
+    border-color:#f0d6b6;
+  }
+  .breed .tag{
+    display:inline-block;
+    font-size:12px;
+    padding:2px 9px;
+    border-radius:999px;
+    background:#fdf0e2;
+    color:var(--amber-deep);
+    margin-bottom:10px;
+  }
+  .breed h3{margin:0 0 8px;font-size:17px;}
+  .breed p{
+    margin:0;
+    font-size:14px;
+    color:var(--ink-soft);
+    line-height:1.7;
+  }
+  .breed .meta{
+    margin-top:12px;
+    font-size:12.5px;
+    color:#a99e93;
+    display:flex;
+    gap:12px;
+    flex-wrap:wrap;
+  }
+  /* ---------- 知识 + 侧栏 ---------- */
+  .split{
+    display:grid;
+    grid-template-columns:1fr 320px;
+    gap:34px;
+    align-items:start;
+  }
+  .article-list{display:grid;gap:16px;}
+  .article-item{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:20px 22px;
+    transition:.2s;
+  }
+  .article-item:hover{box-shadow:var(--shadow);border-color:#f0d6b6;}
+  .article-item h3{
+    margin:0 0 8px;
+    font-size:17.5px;
+  }
+  .article-item h3 a:hover{color:var(--amber-deep);}
+  .article-item p{
+    margin:0 0 12px;
+    font-size:14.5px;
+    color:var(--ink-soft);
+  }
+  .article-item .tags{
+    display:flex;
+    gap:8px;
+    flex-wrap:wrap;
+    font-size:12.5px;
+    color:#a99e93;
+  }
+  .article-item .tags span{
+    background:#f6f1ea;
+    border-radius:999px;
+    padding:2px 10px;
+  }
+  aside.side{
+    display:grid;
+    gap:20px;
+    position:sticky;
+    top:92px;
+  }
+  .panel{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:20px;
+  }
+  .panel h3{
+    margin:0 0 14px;
+    font-size:16px;
+    padding-bottom:10px;
+    border-bottom:1px solid var(--line);
+  }
+  .panel ol,.panel ul{
+    margin:0;
+    padding-left:18px;
+    font-size:14.5px;
+    color:var(--ink-soft);
+  }
+  .panel ol li,.panel ul li{margin-bottom:9px;}
+  .panel ol li a:hover,.panel ul li a:hover{color:var(--amber-deep);}
+  .checklist{list-style:none;padding:0;}
+  .checklist li{
+    position:relative;
+    padding-left:24px;
+  }
+  .checklist li::before{
+    content:"✓";
+    position:absolute;
+    left:0;
+    top:0;
+    color:var(--teal);
+    font-weight:700;
+  }
+  /* ---------- 领养 ---------- */
+  .adopt{
+    background:#fff;
+    border:1px solid var(--line);
+    border-radius:20px;
+    padding:34px;
+    display:grid;
+    grid-template-columns:1.1fr 1fr;
+    gap:34px;
+    align-items:center;
+    box-shadow:var(--shadow);
+  }
+  .adopt h2{margin:0 0 12px;font-size:22px;}
+  .adopt p{color:var(--ink-soft);font-size:15px;margin:0 0 18px;}
+  .adopt-steps{
+    display:grid;
+    gap:12px;
+    counter-reset:step;
+  }
+  .adopt-steps div{
+    background:#fbf7f2;
+    border:1px solid var(--line);
+    border-radius:12px;
+    padding:12px 16px 12px 46px;
+    position:relative;
+    font-size:14.5px;
+  }
+  .adopt-steps div::before{
+    counter-increment:step;
+    content:counter(step);
+    position:absolute;
+    left:14px;top:50%;
+    transform:translateY(-50%);
+    width:22px;height:22px;
+    border-radius:50%;
+    background:var(--teal);
+    color:#fff;
+    font-size:12.5px;
+    display:flex;align-items:center;justify-content:center;
+  }
+  /* ---------- 社区话题 ---------- */
+  .topic-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
+  }
+  .topic{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-left:4px solid var(--amber);
+    border-radius:10px;
+    padding:16px 18px;
+    transition:.2s;
+  }
+  .topic:hover{transform:translateY(-2px);box-shadow:var(--shadow);}
+  .topic b{display:block;font-size:15.5px;margin-bottom:6px;}
+  .topic p{margin:0;font-size:13.5px;color:var(--ink-soft);}
+  .topic span{
+    display:inline-block;
+    margin-top:10px;
+    font-size:12.5px;
+    color:#a99e93;
+  }
+  /* ---------- FAQ ---------- */
+  .faq{display:grid;gap:12px;}
+  details{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:12px;
+    padding:16px 20px;
+  }
+  details[open]{border-color:#f0d6b6;box-shadow:var(--shadow);}
+  summary{
+    cursor:pointer;
+    font-size:16px;
+    font-weight:600;
+    list-style:none;
+    position:relative;
+    padding-right:26px;
+  }
+  summary::-webkit-details-marker{display:none;}
+  summary::after{
+    content:"+";
+    position:absolute;
+    right:0;top:0;
+    color:var(--amber);
+    font-size:20px;
+    line-height:1;
+  }
+  details[open] summary::after{content:"–";}
+  details p{
+    margin:12px 0 0;
+    font-size:14.5px;
+    color:var(--ink-soft);
+  }
+  /* ---------- 页脚 ---------- */
+  footer.site{
+    background:#2b2622;
+    color:#cfc4b8;
+    margin-top:20px;
+    padding:44px 0 22px;
+    font-size:14px;
+  }
+  .foot-grid{
+    display:grid;
+    grid-template-columns:1.4fr 1fr 1fr 1fr;
+    gap:30px;
+  }
+  .foot-grid h4{
+    color:#fff;
+    font-size:15px;
+    margin:0 0 14px;
+  }
+  .foot-grid p{margin:0 0 10px;line-height:1.8;color:#a89c90;}
+  .foot-grid ul{list-style:none;margin:0;padding:0;}
+  .foot-grid ul li{margin-bottom:9px;}
+  .foot-grid ul li a{color:#a89c90;transition:.2s;}
+  .foot-grid ul li a:hover{color:#f2b46a;}
+  .foot-bottom{
+    border-top:1px solid #3d3733;
+    margin-top:30px;
+    padding-top:18px;
+    display:flex;
+    justify-content:space-between;
+    gap:12px;
+    flex-wrap:wrap;
+    color:#8d8177;
+    font-size:13px;
+  }
+  /* ---------- 响应式 ---------- */
+  @media (max-width:1000px){
+    .hero-grid{grid-template-columns:1fr;}
+    .split{grid-template-columns:1fr;}
+    aside.side{position:static;}
+    .breed-grid{grid-template-columns:repeat(2,1fr);}
+    .topic-grid{grid-template-columns:repeat(2,1fr);}
+    .adopt{grid-template-columns:1fr;padding:26px;}
+    .foot-grid{grid-template-columns:repeat(2,1fr);}
+  }
+  @media (max-width:640px){
+    body{font-size:15px;}
+    .head-inner{justify-content:center;text-align:center;}
+    nav.main{justify-content:center;}
+    .head-search input{width:120px;}
+    .hero{padding:36px 0 30px;}
+    .breed-grid{grid-template-columns:1fr;}
+    .topic-grid{grid-template-columns:1fr;}
+    .foot-grid{grid-template-columns:1fr;}
+    section.block{padding:34px 0;}
+    .hero-stats{gap:18px;}
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="wrap">
+    <span>猫咪网 · 陪你把猫养明白</span>
+    <nav>
+      <a href="#breed">品种百科</a>
+      <a href="#care">养护知识</a>
+      <a href="#adopt">领养信息</a>
+      <a href="#faq">常见问题</a>
+    </nav>
+  </div>
+</div>
+
+<header class="site">
+  <div class="wrap head-inner">
+    <div class="brand">
+      <div class="logo">🐱</div>
+      <div>
+        <b>猫咪网</b>
+        <small>品种 · 养护 · 行为 · 领养</small>
+      </div>
+    </div>
+    <nav class="main">
+      <a href="#breed" class="active">品种百科</a>
+      <a href="#care">养护知识</a>
+      <a href="#health">健康护理</a>
+      <a href="#behavior">行为解读</a>
+      <a href="#adopt">领养送养</a>
+      <a href="#community">猫友社区</a>
+    </nav>
+    <form class="head-search" onsubmit="return false;">
+      <input type="text" placeholder="搜索品种 / 症状 / 问题" aria-label="站内搜索">
+      <button type="button">搜索</button>
+    </form>
+  </div>
+</header>
+
+<main>
+
+  <!-- 首屏 -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <h1>猫咪网：从选猫到养老，<em>把养猫这件事讲清楚</em></h1>
+        <p class="lead">
+          无论你是准备养第一只猫，还是家里已经住着一位“主子”，这里整理了品种特点、日常喂养、健康观察、行为理解与领养渠道等实用内容，帮助你少走弯路，也帮助更多猫咪找到稳定的家。
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#breed">查看猫咪品种</a>
+          <a class="btn btn-ghost" href="#care">新手养猫指南</a>
+        </div>
+        <div class="hero-stats">
+          <div><b>品种百科</b><span>按体型、毛长、性格分类</span></div>
+          <div><b>养护专题</b><span>喂养、清洁、环境布置</span></div>
+          <div><b>领养信息</b><span>发布与对接注意事项</span></div>
+        </div>
+      </div>
+      <div class="hero-card">
+        <h3>新手常查的几件事</h3>
+        <ul class="quick-list">
+          <li><a href="#care">接猫回家前要准备什么</a><span>入门</span></li>
+          <li><a href="#health">猫咪不吃东西怎么办</a><span>健康</span></li>
+          <li><a href="#behavior">猫为什么半夜跑酷</a><span>行为</span></li>
+          <li><a href="#breed">长毛猫和短毛猫怎么选</a><span>品种</span></li>
+          <li><a href="#adopt">领养一只猫要走哪些流程</a><span>领养</span></li>
+          <li><a href="#faq">猫粮到底该怎么挑</a><span>喂养</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- 品种百科 -->
+  <section class="block" id="breed">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>猫咪品种百科<small>按毛长、体型与性格特点了解常见家猫</small></h2>
+        <a class="more" href="#breed">全部品种 →</a>
+      </div>
+      <div class="breed-grid">
+        <article class="breed">
+          <span class="tag">短毛 · 中型</span>
+          <h3>中华田园猫</h3>
+          <p>泛指本土自然繁育的家猫，花色多样，体质适应性强，性格个体差异大，有的黏人有的独立，是领养中最常见的群体。</p>
+          <div class="meta"><span>好打理</span><span>适应力强</span><span>适合新手</span></div>
+        </article>
+        <article class="breed">
+          <span class="tag">短毛 · 中型</span>
+          <h3>英国短毛猫</h3>
+          <p>体形圆润、被毛短而密，性格相对安静稳定，对环境变化不算敏感，但需要留意体重管理与遗传性健康问题。</p>
+          <div class="meta"><span>性格温和</span><span>掉毛较多</span><span>需控体重</span></div>
+        </article>
+        <article class="breed">
+          <span class="tag">长毛 · 中大型</span>
+          <h3>布偶猫</h3>
+          <p>被毛半长、毛质柔软，多数个体性格亲人，喜欢跟随主人。长毛打理频率高，换毛季需要每天梳理。</p>
+          <div class="meta"><span>亲人</span><span>需常梳毛</span><span>室内饲养</span></div>
+        </article>
+        <article class="breed">
+          <span class="tag">短毛 · 中型</span>
+          <h3>美国短毛猫</h3>
+          <p>体格结实、运动能力好，常见银色虎斑。精力较旺盛，需要攀爬空间和日常互动游戏来消耗体力。</p>
+          <div class="meta"><span>活泼好动</span><span>体质较好</span><span>需陪玩</span></div>
+        </article>
+        <article class="breed">
+          <span class="tag">短毛 · 大型</span>
+          <h3>缅因猫</h3>
+          <p>体型偏大，耳尖有簇毛，尾巴蓬松。生长周期较长，成年后食量与活动空间需求都高于普通家猫。</p>
+          <div class="meta"><span>体型大</span><span>食量偏多</span><span>性格沉稳</span></div>
+        </article>
+        <article class="breed">
+          <span class="tag">短毛 · 中型</span>
+          <h3>暹罗猫</h3>
+          <p>重点色被毛、蓝眼睛，叫声响亮且爱表达，对主人依恋度高，不太适合长时间无人陪伴的家庭。</p>
+          <div class="meta"><span>话多</span><span>黏人</span><span>需陪伴</span></div>
+        </article>
+        <article class="breed">
+          <span class="tag">长毛 · 中型</span>
+          <h3>波斯猫</h3>
+          <p>被毛长而浓密，面部扁平，日常梳理和面部清洁要求高，夏季需特别注意散热与皮肤护理。</p>
+          <div class="meta"><span>打理费时</span><span>安静</span><span>室内饲养</span></div>
+        </article>
+        <article class="breed">
+          <span class="tag">无毛 · 中型</span>
+          <h3>斯芬克斯猫</h3>
+          <p>被毛稀少，皮肤油脂分泌明显，需要定期擦拭清洁；对温度较敏感，冬天要注意保暖。</p>
+          <div class="meta"><span>需擦身</span><span>怕冷</span><span>性格外向</span></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 养护知识 + 侧栏 -->
+  <section class="block" id="care" style="background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line);">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>养护知识<small>吃、住、清洁与日常陪伴的实用做法</small></h2>
+        <a class="more" href="#care">更多养护文章 →</a>
+      </div>
+      <div class="split">
+        <div class="article-list">
+
+          <article class="article-item">
+            <h3><a href="#care">接猫回家前，先把这几样东西准备好</a></h3>
+            <p>猫砂盆、猫砂、食盆水碗、猫粮、航空箱和一处安静的独立空间，是接猫前的基本配置。刚到家的猫通常需要几天适应期，建议先把它安置在一个小房间里，放好食物、水和猫砂盆，让它自己决定什么时候出来探索，不要强行抱出来互动。</p>
+            <div class="tags"><span>新手入门</span><span>环境布置</span><span>适应期</span></div>
+          </article>
+
+          <article class="article-item">
+            <h3><a href="#care">猫粮怎么选：先看阶段，再看成分</a></h3>
+            <p>幼猫、成猫和老年猫的营养需求不同，选购时先确认适用阶段。配料表通常按含量从高到低排列，可以关注动物性蛋白来源是否明确。换粮要循序渐进，用七到十天逐步替换比例，突然换粮容易引起软便。</p>
+            <div class="tags"><span>喂养</span><span>猫粮</span><span>换粮方法</span></div>
+          </article>
+
+          <article class="article-item">
+            <h3><a href="#care">猫砂盆的数量和摆放，比你想的更重要</a></h3>
+            <p>一般建议猫砂盆数量为猫的数量加一。砂盆应放在安静、通风、容易到达的位置，远离食盆和水碗，也不要紧贴洗衣机等噪音源。每天铲屎、定期整体更换猫砂，能明显减少乱排泄的概率。</p>
+            <div class="tags"><span>日常清洁</span><span>猫砂盆</span><span>行为预防</span></div>
+          </article>
+
+          <article class="article-item">
+            <h3><a href="#care">梳毛、剪指甲与口腔清洁的节奏</a></h3>
+            <p>短毛猫每周梳理两到三次即可，长毛猫建议每天梳理，换毛季适当增加频率。剪指甲一般两到三周一次，注意避开血线。口腔护理可以从幼猫期开始适应，用宠物专用牙刷或指套逐步建立习惯。</p>
+            <div class="tags"><span>美容护理</span><span>梳毛</span><span>剪指甲</span></div>
+          </article>
+
+          <article class="article-item">
+            <h3><a href="#care">家里有猫，这些植物和物品要留意</a></h3>
+            <p>部分常见观赏植物对猫有毒性，例如百合、绿萝、滴水观音等，养猫家庭应尽量避免摆放或放到猫接触不到的位置。此外，针线、橡皮筋、塑料袋、药品和部分人类食物也需要收纳好，避免误食。</p>
+            <div class="tags"><span>居家安全</span><span>有毒植物</span><span>误食预防</span></div>
+          </article>
+
+        </div>
+
+        <aside class="side">
+          <div class="panel">
+            <h3>新手清单</h3>
+            <ul class="checklist">
+              <li>猫砂盆与猫砂</li>
+              <li>食盆、水碗（建议陶瓷或不锈钢）</li>
+              <li>适龄猫粮与零食</li>
+              <li>航空箱或外出包</li>
+              <li>猫抓板与逗猫棒</li>
+              <li>指甲剪与梳毛工具</li>
+            </ul>
+          </div>
+          <div class="panel">
+            <h3>热门标签</h3>
+            <ol>
+              <li><a href="#care">幼猫喂养</a></li>
+              <li><a href="#health">呕吐与软便</a></li>
+              <li><a href="#behavior">乱尿与应激</a></li>
+              <li><a href="#care">换毛季打理</a></li>
+              <li><a href="#health">绝育前后护理</a></li>
+            </ol>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- 健康护理 -->
+  <section class="block" id="health">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>健康护理<small>日常观察要点与就医判断思路</small></h2>
+      </div>
+      <div class="split">
+        <div class="article-list">
+          <article class="article-item">
+            <h3><a href="#health">每天花两分钟，观察这几项指标</a></h3>
+            <p>精神状态、食欲饮水、排便排尿、被毛与眼鼻分泌物，是最容易在日常中发现的信号。猫擅长隐藏不适，等到明显萎靡时往往已经持续一段时间，所以规律观察比临时判断更有效。</p>
+            <div class="tags"><span>日常观察</span><span>早发现</span></div>
+          </article>
+          <article class="article-item">
+            <h3><a href="#health">疫苗与驱虫的基本节奏</a></h3>
+            <p>幼猫通常按兽医建议完成基础免疫程序，成年猫根据生活方式和风险定期加强。体内外驱虫的频率与产品类型、生活环境有关，具体方案建议咨询执业兽医，不要自行叠加用药。</p>
+            <div class="tags"><span>疫苗</span><span>驱虫</span><span>遵医嘱</span></div>
+          </article>
+          <article class="article-item">
+            <h3><a href="#health">出现这些情况，建议尽快就医</a></h3>
+            <p>持续不进食超过一天、频繁呕吐、呼吸急促或张口呼吸、排尿困难、明显疼痛反应、误食异物或药物等，都属于不宜在家观察的情况。出行前可先电话联系就近的宠物医院说明情况。</p>
+            <div class="tags"><span>就医信号</span><span>紧急情况</span></div>
+          </article>
+        </div>
+        <aside class="side">
+          <div class="panel">
+            <h3>就医前可以准备的信息</h3>
+            <ul>
+              <li>症状出现的时间和变化过程</li>
+              <li>近期饮食、换粮或环境变动</li>
+              <li>排便排尿的次数与形态</li>
+              <li>疫苗、驱虫与用药记录</li>
+              <li>是否有可能误食的物品</li>
+            </ul>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- 行为解读 -->
+  <section class="block" id="behavior" style="background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line);">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>行为解读<small>理解猫在表达什么，减少误解和冲突</small></h2>
+      </div>
+      <div class="topic-grid">
+        <div class="topic">
+          <b>半夜跑酷</b>
+          <p>猫本身是晨昏活跃的动物。白天增加互动游戏、睡前安排一次逗猫棒活动，有助于把精力释放到合适的时间段。</p>
+          <span>关键词：作息 · 游戏</span>
+        </div>
+        <div class="topic">
+          <b>突然乱尿</b>
+          <p>可能来自泌尿系统不适、猫砂盆不洁、环境变化或应激。先排除健康问题，再检查砂盆数量、位置和猫砂类型。</p>
+          <span>关键词：应激 · 砂盆</span>
+        </div>
+        <div class="topic">
+          <b>呼噜声</b>
+          <p>多数情况下代表放松和满足，但也有猫在紧张或不适时发出呼噜声，需要结合身体姿态和当时情境一起判断。</p>
+          <span>关键词：情绪 · 情境</span>
+        </div>
+        <div class="topic">
+          <b>踩奶</b>
+          <p>幼猫吃奶时的动作延续到成年，常出现在柔软物体或主人身上，通常表示放松和安全感。</p>
+          <span>关键词：幼年行为</span>
+        </div>
+        <div class="topic">
+          <b>缓慢眨眼</b>
+          <p>常被理解为一种放松和信任的信号。面对紧张的猫时，缓慢眨眼、避免直视，有助于降低它的戒备。</p>
+          <span>关键词：沟通 · 安抚</span>
+        </div>
+        <div class="topic">
+          <b>炸毛与哈气</b>
+          <p>属于防御性反应，通常来自恐惧或领地被侵犯。此时不要强行抱它，给它留出退路和躲藏空间更稳妥。</p>
+          <span>关键词：恐惧 · 空间</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 领养 -->
+  <section class="block" id="adopt">
+    <div class="wrap">
+      <div class="adopt">
+        <div>
+          <h2>领养与送养</h2>
+          <p>领养不是一次性的善意，而是一段可能持续十几年的责任。发布或对接领养信息时，双方把健康情况、年龄、绝育与免疫状态、性格习惯和后续联系方式沟通清楚，能减少很多后续问题。</p>
+          <p>猫咪网不直接参与线下交接，仅提供信息整理与经验参考，具体事宜请双方自行核实并签署必要约定。</p>
+          <a class="btn btn-primary" href="#community">了解发布规范</a>
+        </div>
+        <div class="adopt-steps">
+          <div>确认自身居住条件、家人意见与长期照顾能力</div>
+          <div>了解猫咪年龄、健康状况与已完成的医疗项目</div>
+          <div>准备独立空间、基础用品与适应期安排</div>
+          <div>约定回访方式，保持必要的情况沟通</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 社区 -->
+  <section class="block" id="community" style="background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line);">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>猫友社区<small>经验交流与问题讨论的常见板块</small></h2>
+      </div>
+      <div class="topic-grid">
+        <div class="topic">
+          <b>新手报到</b>
+          <p>第一次养猫的疑问集中在这里，从用品挑选到接猫适应期，都可以提问。</p>
+          <span>适合：养猫 0–6 个月</span>
+        </div>
+        <div class="topic">
+          <b>喂养记录</b>
+          <p>分享主食、零食、饮水习惯与体重变化，交流不同阶段的喂养安排。</p>
+          <span>适合：关注饮食的猫友</span>
+        </div>
+        <div class="topic">
+          <b>健康互助</b>
+          <p>记录就医过程与护理经验。涉及诊断和用药的问题，仍应以执业兽医意见为准。</p>
+          <span>适合：需要经验参考</span>
+        </div>
+        <div class="topic">
+          <b>行为观察</b>
+          <p>讨论乱尿、抓挠、应激、多猫相处等常见行为困扰的应对思路。</p>
+          <span>适合：多猫家庭</span>
+        </div>
+        <div class="topic">
+          <b>领养对接</b>
+          <p>发布领养与送养信息，建议注明地区、年龄、健康与绝育情况。</p>
+          <span>适合：救助人与领养人</span>
+        </div>
+        <div class="topic">
+          <b>晒猫日常</b>
+          <p>记录猫咪的成长片段与生活趣事，轻松交流，不必严肃。</p>
+          <span>适合：所有猫友</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="block" id="faq">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>常见问题<small>养猫过程中被问得最多的几件事</small></h2>
+      </div>
+      <div class="faq">
+        <details open>
+          <summary>第一次养猫，选幼猫还是成年猫？</summary>
+          <p>幼猫需要更多时间照顾，包括喂食频次、疫苗程序和习惯培养；成年猫性格相对稳定，适应期通常更短。如果白天长时间不在家，性格温和的成年猫往往更容易相处。最终应结合居住空间、可投入的时间和精力来判断。</p>
+        </details>
+        <details>
+          <summary>猫粮是不是越贵越好？</summary>
+          <p>价格不是唯一标准。更重要的是适用阶段、配料信息是否清晰、猫咪实际食用后的消化情况和体态变化。同一只猫在不同年龄和健康状态下，合适的粮也可能不同，必要时可咨询兽医。</p>
+        </details>
+        <details>
+          <summary>猫需要定期洗澡吗？</summary>
+          <p>多数健康的猫会自行清洁，不需要频繁洗澡。过度清洗可能破坏皮肤屏障。若因皮肤问题或特殊原因需要清洁，建议使用宠物专用产品，并控制频率。</p>
+        </details>
+        <details>
+          <summary>家里已经有一只猫，还能再养一只吗？</summary>
+          <p>可以，但需要循序渐进。先隔离新猫，让两只猫通过气味熟悉，再逐步交换空间、进行短时间视觉接触，观察双方反应后再决定是否合养。资源要按数量增加，包括猫砂盆、食盆和休息点。</p>
+        </details>
+        <details>
+          <summary>猫咪网的信息能代替兽医诊断吗？</summary>
+          <p>不能。站内内容以科普和经验整理为主，帮助用户理解常见概念与观察方向，不构成医疗建议。猫咪出现异常时，请及时联系执业兽医进行面诊。</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <h4>关于猫咪网</h4>
+        <p>猫咪网是一个面向养猫人群的内容与交流平台，整理品种资料、养护方法、健康观察要点与领养信息，帮助猫主人更从容地照顾身边的猫。</p>
+        <p>站内内容仅供参考，健康问题请以执业兽医意见为准。</p>
+      </div>
+      <div>
+        <h4>内容导航</h4>
+        <ul>
+          <li><a href="#breed">品种百科</a></li>
+          <li><a href="#care">养护知识</a></li>
+          <li><a href="#health">健康护理</a></li>
+          <li><a href="#behavior">行为解读</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>参与交流</h4>
+        <ul>
+          <li><a href="#community">新手报到</a></li>
+          <li><a href="#community">喂养记录</a></li>
+          <li><a href="#community">健康互助</a></li>
+          <li><a href="#adopt">领养对接</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>帮助与说明</h4>
+        <ul>
+          <li><a href="#faq">常见问题</a></li>
+          <li><a href="#adopt">领养发布规范</a></li>
+          <li><a href="#care">新手清单</a></li>
+          <li><a href="#health">就医前准备</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 猫咪网 · 内容以科普与经验整理为主</span>
+      <span>请科学养猫，理性领养，善待每一个小生命</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // 导航锚点高亮
+  (function(){
+    var links = document.querySelectorAll('nav.main a');
+    var sections = [];
+    links.forEach(function(a){
+      var id = a.getAttribute('href');
+      if(id && id.charAt(0) === '#'){
+        var el = document.querySelector(id);
+        if(el) sections.push({link:a, el:el});
+      }
+    });
+    if(!sections.length) return;
+    function update(){
+      var pos = window.scrollY + 140;
+      var current = sections[0];
+      sections.forEach(function(s){
+        if(s.el.offsetTop <= pos) current = s;
+      });
+      links.forEach(function(a){ a.classList.remove('active'); });
+      if(current && current.link) current.link.classList.add('active');
+    }
+    window.addEventListener('scroll', update, {passive:true});
+    update();
+  })();
+
+  // 搜索框简单提示（无后端，仅交互反馈）
+  (function(){
+    var form = document.querySelector('.head-search');
+    if(!form) return;
+    var input = form.querySelector('input');
+    var btn = form.querySelector('button');
+    function tip(){
+      var v = (input.value || '').trim();
+      if(!v){
+        input.focus();
+        return;
+      }
+      input.value = '';
+      input.placeholder = '已记录“' + v + '”，可先浏览下方分类';
+    }
+    btn.addEventListener('click', tip);
+    input.addEventListener('keydown', function(e){
+      if(e.key === 'Enter'){ e.preventDefault(); tip(); }
+    });
+  })();
+</script>
+
+</body>
+  </html>
